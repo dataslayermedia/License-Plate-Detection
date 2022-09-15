@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+</html>
+<script type="text/javascript" src="https://livejs.com/live.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.12.0/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-automl@1.3.0/dist/tf-automl.min.js"></script>
+<script src='https://unpkg.com/tesseract.js@2.1.4/dist/tesseract.min.js'></script>
+<img id="salad" crossorigin="anonymous" src="http://localhost:8080/images/Cars1.png">
+
+<br><br>
+
+<canvas width="450" height="600" id="canvas"></canvas>
+<script>
+    async function run() {
+        const model = await tf.automl.loadObjectDetection('http://localhost:8080/model/model.json');
+        const img = document.getElementById('salad');
+        const options = {
+            score: 0.5,
+            iou: 0.5,
+            topk: 20
+        };
+        const predictions = await model.detect(img, options);
+        console.log(predictions);
+        // Show the resulting object on the page.
+        const pre = document.createElement('pre');
+        pre.textContent = JSON.stringify(predictions, null, 2);
+        document.body.append(pre);
+
+
+        var img3 = document.getElementById('salad');
+
+        var width = img3.clientWidth;
+        var height = img3.clientHeight;
+
+        console.log(width, height);
+
+
+        var c = document.getElementById("canvas");
+        var ctx = c.getContext("2d");
+        ctx.canvas.width = width;
+        ctx.canvas.height = height;
+
+        var img3 = document.getElementById("salad");
+
+
+        /*
+        ctx.drawImage(img3, 0, 0, width, height);
+
+
+
+        // var canvas = document.getElementById('canvas');
+        //  var context = canvas.getContext('2d');
+
+
+        ctx.beginPath();
+        ctx.rect(predictions[0].box.left, predictions[0].box.top, predictions[0].box.width, predictions[0].box
+            .height);
+        ctx.fillStyle = "rgba(255, 255, 255, 0.3)";
+        ctx.fill();
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'blue';
+        ctx.stroke();
+*/
+
+
+        var left = predictions[0].box.left - 15;
+        var top = predictions[0].box.top - 15;
+        var width = predictions[0].box.width + 35;
+        var height = predictions[0].box.height + 35;
+
+
+
+
+        ctx.drawImage(img3, left, top, width, height, left, top, width, height);
+
+
+
+
+
+
+
+
+        document.querySelector("img").style.display = "none";
+
+        const exampleImage = 'http://localhost:8080/images/Cars1.png';
+
+        const worker = Tesseract.createWorker({
+            logger: m => console.log(m)
+        });
+        Tesseract.setLogging(true);
+        work();
+
+        async function work() {
+            await worker.load();
+            await worker.loadLanguage('eng');
+            await worker.initialize('eng');
+
+            await worker.setParameters({
+                tessedit_pageseg_mode: 11,
+            });
+
+            // let result = await worker.detect(exampleImage);
+            //  console.log(result.data);
+            /*
+                      var canvas = document.getElementById("canvas").getContext('2d');
+
+                      var ctx = document.getElementById("canvas").getContext('2d');
+
+                      let src = ctx.getImageData(0, 0, width, height);
+            */
+
+            /*
+                        result = await worker.recognize(exampleImage);
+                        console.log(result.data);
+
+                        await worker.terminate();
+            */
+
+            var img = c.toDataURL("image/png");
+
+            result = await worker.recognize(img);
+
+            console.log(result.data);
+            await worker.terminate();
+
+        }
+    }
+    run();
+</script>

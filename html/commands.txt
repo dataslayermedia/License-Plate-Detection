@@ -1,0 +1,7 @@
+#Start the Web Server
+
+cd ./html
+npm install http-server -g
+
+
+
