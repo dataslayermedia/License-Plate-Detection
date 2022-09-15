@@ -1,0 +1,16 @@
+--2022-07-30 18:11:35--  https://929687.smushcdn.com/2633864/wp-content/uploads/2020/09/opencv_anpr_gray_and_thresh_plate.png?lossy=1
+Resolving 929687.smushcdn.com (929687.smushcdn.com)... 151.139.240.19
+Connecting to 929687.smushcdn.com (929687.smushcdn.com)|151.139.240.19|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://pyimagesearch.com/wp-content/uploads/2020/09/opencv_anpr_gray_and_thresh_plate.png [following]
+--2022-07-30 18:11:35--  https://pyimagesearch.com/wp-content/uploads/2020/09/opencv_anpr_gray_and_thresh_plate.png
+Resolving pyimagesearch.com (pyimagesearch.com)... 172.104.211.12
+Connecting to pyimagesearch.com (pyimagesearch.com)|172.104.211.12|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 23001 (22K) [image/png]
+Saving to: ‘opencv_anpr_gray_and_thresh_plate.png?lossy=1’
+
+opencv_anpr_gray_and_thresh_plate.png?lossy=   0%[                                                                                              ]       0  --.-KB/s               opencv_anpr_gray_and_thresh_plate.png?lossy= 100%[=============================================================================================>]  22.46K  --.-KB/s    in 0.004s  
+
+2022-07-30 18:11:35 (5.95 MB/s) - ‘opencv_anpr_gray_and_thresh_plate.png?lossy=1’ saved [23001/23001]
+
