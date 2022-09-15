@@ -3,7 +3,7 @@ ffmpeg -i ./example.MOV -vf "drawtext=fontfile=/System/Library/Fonts/SFNSMono.tt
 
 
 # Execute Script
-GOOGLE_APPLICATION_CREDENTIALS="/Users/refactored/Desktop/video-intelligence-sa.json" npm start
+GOOGLE_APPLICATION_CREDENTIALS="/var/www/html/app/gcp-key.json" node image-capture.js
 
 
 # Convert a video from .MOV to .mp4

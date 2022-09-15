@@ -1,16 +1,5 @@
 {
-  "name": "video-intelligence",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@google-cloud/storage": "^5.11.0",
-    "@google-cloud/video-intelligence": "^3.3.5"
+    "@google-cloud/vision": "^2.4.2"
   }
 }
